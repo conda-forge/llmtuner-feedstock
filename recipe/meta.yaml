@@ -1,5 +1,5 @@
 {% set name = "llmtuner" %}
-{% set version = "0.6.1" %}
+{% set version = "0.6.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/hiyouga/LLaMA-Factory/archive/v{{ version }}.tar.gz
-  sha256: 214799de46778a5163084124fcf0d82b1b7702439b8c541f5800d2ba8dfb6ebe
+  sha256: e6130c041f083ce8dd4b6650b520c674659e2c98fbbfe38eccb496200756dbe9
 
 build:
   noarch: python
@@ -27,7 +27,7 @@ requirements:
     - accelerate >=0.27.2
     - peft >=0.10.0
     - trl >=0.8.1
-    - gradio <4.0.0,>=3.38.0
+    - gradio <=4.21.0,>=4.0.0
     - scipy
     - einops
     - sentencepiece
