@@ -39,6 +39,7 @@ requirements:
     - matplotlib-base
     - fire
     - galore-torch
+    - gradio >=4.0.0,<=4.21.0
 
 test:
   imports:
