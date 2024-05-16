@@ -1,5 +1,5 @@
 {% set name = "llmtuner" %}
-{% set version = "0.7.0" %}
+{% set version = "0.7.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/hiyouga/LLaMA-Factory/archive/v{{ version }}.tar.gz
-  sha256: b64a5a2cf42fee64eb04b2b0cb9f2698aa65addf4aa6fe6038710e87f3876afa
+  sha256: 7835637977c3c83758dbc39a551d2035b7079f78c41f13e1dd3b51d71c096b8a
 
 build:
   noarch: python
@@ -20,6 +20,7 @@ requirements:
     - setuptools >=61.0
     - pip
   run:
+    - pyyaml
     - packaging
     - python >=3.8
     - pytorch >=1.13.1
@@ -37,7 +38,7 @@ requirements:
     - pydantic
     - fastapi
     - sse-starlette
-    - matplotlib-base
+    - matplotlib-base >=3.7.0
     - fire
     - galore-torch
 
