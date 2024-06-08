@@ -1,5 +1,5 @@
 {% set name = "llmtuner" %}
-{% set version = "0.7.1" %}
+{% set version = "0.8.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/hiyouga/LLaMA-Factory/archive/v{{ version }}.tar.gz
-  sha256: 7835637977c3c83758dbc39a551d2035b7079f78c41f13e1dd3b51d71c096b8a
+  sha256: ee232fdc7ba106433dd6caa6fc651c9f4330a76a20f0590f973238a0427e90e9
 
 build:
   noarch: python
@@ -41,10 +41,11 @@ requirements:
     - matplotlib-base >=3.7.0
     - fire
     - galore-torch
+    - tiktoken
 
 test:
   imports:
-    - llmtuner
+    - llamafactory
   commands:
     - pip check
   requires:
