@@ -1,5 +1,5 @@
 {% set name = "llmtuner" %}
-{% set version = "0.8.3" %}
+{% set version = "0.9.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/hiyouga/LLaMA-Factory/archive/v{{ version }}.tar.gz
-  sha256: e1dc61e20551084873070dee27d4cb2a8ef41dbf1f9f114ede70a85734532700
+  sha256: 420f6d923cd13472055220d7bcb19f9bdad922b56798f0757ad364323e216565
 
 build:
   noarch: python
