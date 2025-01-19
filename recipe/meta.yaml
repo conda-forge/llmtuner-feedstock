@@ -46,6 +46,7 @@ requirements:
     - fire
     - galore-torch
     - tiktoken
+    - eval-type-backport
 
 test:
   imports:
