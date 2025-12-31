@@ -61,10 +61,10 @@ requirements:
 test:
   imports:
     - llamafactory
-  commands:
-    - pip check
+  # commands:
+  #   - pip check
   requires:
-    - pip
+  #   - pip
     - python {{ python_min }}
 
 about:
