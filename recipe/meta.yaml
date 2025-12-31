@@ -1,5 +1,6 @@
 {% set name = "llmtuner" %}
 {% set version = "0.9.4" %}
+{% set python_min = "3.11" %}
 
 package:
   name: {{ name|lower }}
