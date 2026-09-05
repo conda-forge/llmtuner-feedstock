@@ -1,23 +1,26 @@
-{% set name = "llmtuner" %}
-{% set version = "0.9.5" %}
-{% set python_min = "3.11" %}
+schema_version: 1
+
+context:
+  name: llmtuner
+  version: "0.9.5"
+  python_min: "3.11"
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: ${{ name|lower }}
+  version: ${{ version }}
 
 source:
-  url: https://github.com/hiyouga/LLaMA-Factory/archive/v{{ version }}.tar.gz
+  url: https://github.com/hiyouga/LLaMA-Factory/archive/v${{ version }}.tar.gz
   sha256: 363b749a5f3574f837f784a02f5ada4ea4b53309b635b92af033253d41138348
 
 build:
+  number: 1
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
-    - python {{ python_min }}
+    - python 3.11.*
     - hatchling
     - pip
   run:
@@ -36,7 +39,7 @@ requirements:
     - tyro <0.9.0
     - pyyaml
     - packaging
-    - python >={{ python_min }}
+    - python >=${{ python_min }}
     - pytorch >=2.4.0
     - transformers >=4.55.0,<=5.6.0,!=4.52.0,!=4.57.0
     - datasets >=2.16.0,<=4.0.0
@@ -58,20 +61,17 @@ requirements:
     - tiktoken
     - eval-type-backport
 
-test:
-  imports:
-    - llamafactory
-  # commands:
-  #   - pip check
-  requires:
-  #   - pip
-    - python {{ python_min }}
-
+tests:
+  - python:
+      imports:
+        - llamafactory
+      pip_check: false
+      python_version: ${{ python_min }}
 about:
-  home: https://github.com/hiyouga/LLaMA-Factory
   summary: Easy-to-use LLM fine-tuning framework
   license: Apache-2.0
   license_file: LICENSE
+  homepage: https://github.com/hiyouga/LLaMA-Factory
 
 extra:
   recipe-maintainers:
